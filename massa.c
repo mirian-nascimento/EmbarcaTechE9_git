@@ -16,14 +16,12 @@ int main() {
     printf("Escolha a unidade de destino (1-3): ");
     scanf("%d", &destino);
 
-    // Converte a unidade de origem para quilogramas
-    if (origem == 2) valor /= 1000.0;      // Grama para Quilograma
-    else if (origem == 3) valor *= 1000.0; // Tonelada para Quilograma
+    if (origem == 2) valor /= 1000.0;      
+    else if (origem == 3) valor *= 1000.0; 
 
-    // Converte de quilogramas para a unidade de destino
-    if (destino == 2) resultado = valor * 1000.0;      // Quilograma para Grama
-    else if (destino == 3) resultado = valor / 1000.0; // Quilograma para Tonelada
-    else resultado = valor;                            // Quilograma para Quilograma
+    if (destino == 2) resultado = valor * 1000.0;      
+    else if (destino == 3) resultado = valor / 1000.0; 
+    else resultado = valor;                            
 
     printf("Valor Convertido: %.2f\n", resultado);
 
