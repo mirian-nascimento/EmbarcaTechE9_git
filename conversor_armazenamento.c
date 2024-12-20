@@ -51,3 +51,21 @@ void convert_storage(double value, char from_unit[], char to_unit[]) {
     // mostra o resultado
     printf("%.2f %s is equal to %.2f %s\n", value, from_unit, result, to_unit);
 }
+
+int main() {
+    double value;
+    char from_unit[10], to_unit[10];
+
+    printf("Enter the value to convert: ");
+    scanf("%lf", &value);
+
+    printf("Enter the unit to convert from (bits, bytes, KB, MB, GB, TB): ");
+    scanf("%s", from_unit);
+
+    printf("Enter the unit to convert to (bits, bytes, KB, MB, GB, TB): ");
+    scanf("%s", to_unit);
+
+    convert_storage(value, from_unit, to_unit);
+
+    return 0;
+}
