@@ -2,7 +2,7 @@
 
 #include <stdio.h>
 
-int main() {
+void converterTempo() {
     // 1) - Declaração de variável
     double valor, resultado;
     char origem, destino;
@@ -37,12 +37,12 @@ int main() {
         else resultado = valor;
     } else {
         printf("Unidade de origem inv�lida!\n");
-        return 1;
+        return ;
     }
 
 
     // 4) - Exibição de resultados
     printf("Resultado: %.2f\n", resultado);
-    return 0;
+    
 }
 
