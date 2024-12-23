@@ -5,11 +5,11 @@
 void converterTempo() {
     // 1) - Declaração de variável
     double valor, resultado;
-    char origem, destino;
+    int origem, destino;
 
     // 2) - coleta de dados
-	printf("Digite a unidade de origem (s - segundos, m - minutos, h - horas): ");
-	scanf("%c", &origem);
+	printf("Digite a unidade de origem (1 - segundos, 2 - minutos, 3 - horas): ");
+	scanf("%d", &origem);
 	printf("\n");
 	
 	printf("Digite o valor: ");
@@ -17,23 +17,23 @@ void converterTempo() {
 	printf("\n");
 
 
-    printf("Digite a unidade de destino (s - segundos, m - minutos, h - horas): ");
-    scanf(" %c", &destino);
+    printf("Digite a unidade de destino (1 - segundos, 2 - minutos, 3 - horas): ");
+    scanf(" %d", &destino);
     printf("\n");
 
 
     // 3) - Laço de decição e operação
-    if (origem == 's') {
-        if (destino == 'm') resultado = valor / 60;
-        else if (destino == 'h') resultado = valor / 3600;
+    if (origem == 1) {
+        if (destino == 2) resultado = valor / 60;
+        else if (destino == 3) resultado = valor / 3600;
         else resultado = valor;
-    } else if (origem == 'm') {
-        if (destino == 's') resultado = valor * 60;
-        else if (destino == 'h') resultado = valor / 60;
+    } else if (origem == 2) {
+        if (destino == 1) resultado = valor * 60;
+        else if (destino == 3) resultado = valor / 60;
         else resultado = valor;
-    } else if (origem == 'h') {
-        if (destino == 's') resultado = valor * 3600;
-        else if (destino == 'm') resultado = valor * 60;
+    } else if (origem == 3) {
+        if (destino == 1) resultado = valor * 3600;
+        else if (destino == 2) resultado = valor * 60;
         else resultado = valor;
     } else {
         printf("Unidade de origem inv�lida!\n");
