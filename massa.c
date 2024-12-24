@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-int main() {
+void converterMassa() {
     float valor, resultado;
     int origem, destino;
 
@@ -16,14 +16,12 @@ int main() {
     printf("Escolha a unidade de destino (1-3): ");
     scanf("%d", &destino);
 
-    if (origem == 2) valor /= 1000.0;      
-    else if (origem == 3) valor *= 1000.0; 
+    if (origem == 2) valor /= 1000.0;
+    else if (origem == 3) valor *= 1000.0;
 
-    if (destino == 2) resultado = valor * 1000.0;      
-    else if (destino == 3) resultado = valor / 1000.0; 
-    else resultado = valor;                            
+    if (destino == 2) resultado = valor * 1000.0;
+    else if (destino == 3) resultado = valor / 1000.0;
+    else resultado = valor;
 
     printf("Valor Convertido: %.2f\n", resultado);
-
-    return 0;
 }
