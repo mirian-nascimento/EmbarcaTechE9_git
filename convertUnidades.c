@@ -16,10 +16,12 @@ void converterArea();
 void converterArmazenamento();
 void converterTemperatura();
 void converterTempo();
+void converterComprimento();
+void converterVolume();
 double get_conversion_factor(char from_unit[], char to_unit[]);
 void convert_storage(double value, char from_unit[], char to_unit[]);
-
 float conversao_temperatura(float original, int medida_original, int medida_final);
+double converter_volume(double valor, int de, int para);
 
 int main() {
     setlocale(LC_ALL, "pt_BR.UTF-8");  // Definindo o idioma
@@ -33,6 +35,8 @@ int main() {
     printf("4. Conversor de Armazenamento\n");
     printf("5. Conversor de Temperatura\n");
     printf("6. Conversor de Tempo\n");
+    printf("7. Conversor de Comprimento\n");
+    printf("8. Conversor de Volume\n");
     printf("Escolha o conversor: ");
     scanf("%d", &escolha);
 
@@ -54,6 +58,12 @@ int main() {
             break;
         case 6:
             converterTempo();
+            break;
+        case 7:
+            converterComprimento();
+            break;
+        case 8:
+            converterVolume();
             break;
         default:
             printf("Opção inválida.\n");
@@ -279,4 +289,64 @@ void converterTempo() {
     }
 
     printf("Resultado: %.2f\n", resultado);
+}
+
+// Função para conversão de comprimento
+void converterComprimento() {
+    float medida;
+    int unidade;
+
+    printf("=== Conversor de Comprimento ===\n");
+    printf("Digite a medida: ");
+    scanf("%f", &medida);
+
+    printf("Digite a unidade (1 para metros, 2 para centímetros, 3 para milímetros): ");
+    scanf("%d", &unidade);
+
+    switch (unidade) {
+        case 1:
+            printf("%.2f metros equivalem a %.2f centímetros e %.2f milímetros.\n", medida, medida * 100, medida * 1000);
+            break;
+        case 2:
+            printf("%.2f centímetros equivalem a %.2f metros e %.2f milímetros.\n", medida, medida / 100, medida * 10);
+            break;
+        case 3:
+            printf("%.2f milímetros equivalem a %.2f metros e %.2f centímetros.\n", medida, medida / 1000, medida / 10);
+            break;
+        default:
+            printf("Unidade inválida.\n");
+            break;
+    }
+}
+
+// Função para conversão de volume
+void converterVolume() {
+    double valor;
+    int de, para;
+
+    printf("=== Conversor de Volume ===\n");
+    printf("Digite o valor: ");
+    scanf("%lf", &valor);
+
+    printf("Escolha a unidade de origem (0 - litro, 1 - mililitro, 2 - metro cúbico): ");
+    scanf("%d", &de);
+
+    printf("Escolha a unidade de destino (0 - litro, 1 - mililitro, 2 - metro cúbico): ");
+    scanf("%d", &para);
+
+    double resultado = converter_volume(valor, de, para);
+    printf("Resultado: %.2f\n", resultado);
+}
+
+double converter_volume(double valor, int de, int para) {
+    double litros, resultado;
+    if (de == 0) litros = valor;  // Litro
+    else if (de == 1) litros = valor / 1000;  // Mililitro
+    else litros = valor * 1000;  // Metro cúbico
+
+    if (para == 0) resultado = litros;
+    else if (para == 1) resultado = litros * 1000;
+    else resultado = litros / 1000;
+
+    return resultado;
 }
